@@ -1,6 +1,5 @@
 import React from "react";
 import "./Joke.css";
-
 const Joke = (props) => {
   const { votes, upvote, downvote, text } = props;
   const getColor = () => {
@@ -49,7 +48,7 @@ const Joke = (props) => {
       </div>
       <div className="Joke-text">{text}</div>
       <div className="Joke-smiley">
-        <i  className={getEmoji()} />
+        <i className={getEmoji()} />
       </div>
     </div>
   );
