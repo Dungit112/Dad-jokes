@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Joke from "./Joke";
+import Joke from "../joke/Joke";
 import axios from "axios";
 import uuid from "uuid/v4";
 import "./JokeList.css";
@@ -88,9 +88,7 @@ const JokeList = () => {
             key={index + 1}
             votes={j.votes}
             text={j.text}
-            // upvote={() =>handleVote(j.id, 1)}
             upvote={() => dispatch(addVote(j.id))}
-            // downvote={() =>handleVote(j.id, -1)}
             downvote={() => dispatch(downVote(j.id))}
           />
         ))}

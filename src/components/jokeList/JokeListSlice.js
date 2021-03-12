@@ -19,11 +19,13 @@ export const jokerSlice = createSlice({
     },
     sortVote: (state) => {
       state.joke.sort((a, b) => b.votes - a.votes);
+      window.localStorage.setItem(
+        "jokes",
+        JSON.stringify([...state.joke])
+      );
     },
   },
 });
-
-// Action creators are generated for each case reducer function
 export const {
   increment,
   decrement,

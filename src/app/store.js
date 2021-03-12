@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import JokeListSlice from "../JokeListSlice";
+import JokeListSlice from "../components/jokeList/JokeListSlice";
 
 export default configureStore({
   reducer: {
