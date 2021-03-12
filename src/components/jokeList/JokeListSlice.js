@@ -1,5 +1,5 @@
 import { createSlice, current } from "@reduxjs/toolkit";
-
+import uuid from 'uuid'
 export const jokerSlice = createSlice({
   name: "app",
   initialState: {
@@ -7,6 +7,14 @@ export const jokerSlice = createSlice({
   },
 
   reducers: {
+    fetchJokes: () =>{},
+    setJokes: (state,action) =>{
+      console.log("set",action.payload);
+      const { id, joke} = action.payload;
+      let arr = new Set(state.joke.map(el => el.joke));
+      arr.has(joke) ? console.log('Duplicate') : state.joke.push({id: id, joke: joke, votes: 0}) 
+    },
+    
     addVote: (state, action) => {
       const idvote = action.payload;
       console.log(current(state));
@@ -33,6 +41,8 @@ export const {
   addVote,
   downVote,
   sortVote,
+  fetchJokes,
+  setJokes,
+  seenJokes
 } = jokerSlice.actions;
-export const selectValue = (state) => state.app.joke;
 export default jokerSlice.reducer;
